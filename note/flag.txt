@@ -4,7 +4,7 @@ html框架中的数据
 2.  html中的值, v-model, {{name}}
 3. html中的动作, v-on
 4. 自定义指令, v-dir...
-5. 计算属性, computed... 表示用于计算html中的表达式
+5. 计算属性, computed... 表示用于计算html中的表达式, 注意计算属性只是一个属性
 6. 数据过滤指令其实也是一个表达式, {{name | formartStr1 | formartStr2}}
    Vue.filter() 这种定义方式是全局的
    filters: 使用对象这种定义方式, 这种定义方式是局部的
@@ -13,7 +13,10 @@ html框架中的数据
 将需要执行的动画放到transition组件中去
 当transition组件中的元素显示的时候会自动查找
 .v-enter .v-enter-active .v-enter-to类名称
-当
+当transition组件中的元素隐藏的时候会自动查找
+.v-leave  .v-leave-active .v-leave-to
+
+我们只需要在.v-enter和.v-leave-to中指定动画开始的状态
 
 
 
