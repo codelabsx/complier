@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <abc></abc>
+    </div>
+</body>
+
+<template id="info">
+    <div>
+        <p>我是描述信息</p>
+    </div>
+</template>
+
+
+
+<script src="js/vue.js"></script>
+<script>
+
+    //在创建组件指定组件的模版的时候, 模版只能有一个根元素
+    Vue.component("abc", {
+        template:`
+            <div>
+                <p>我是描述信息</p>
+            </div>
+        `
+    });
+
+    Vue.component("abc", {
+        //注意点, 在创建组件的模版的时候, 模版只能有一个根元素
+        template: "#info" //可以在外部定义模版
+    });
+
+    let vue = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        computed: {},
+    });
+</script>
+</html>
