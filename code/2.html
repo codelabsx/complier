@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form>
+            <input type="text" v-model="name">
+            <input type="submit" name="添加" id="">
+        </form>
+    </div>
+
+    <ul>
+        <li v-for="(person, index) in persons" :key="index">
+            <input type="checkbox">
+            <span>{{index}} --- {{person.name}}</span>
+        </li>
+    </ul>
+    
+</body>
+
+<script src="js/vue.js">
+</script>
+
+<script>
+
+    var pe = [{name: "zs", id: 1},
+              {name: "ls", id: 2},
+              {name: 'ww', id: 3}];
+
+
+    let vue = new Vue({
+        el: '#app',
+        data: {
+            persons: pe,
+            name: "" 
+        },
+        methods:{
+            add() {
+                let len = this.persons.length - 1;
+                let lastPerson = this.persons[len];
+                let newPerson = {
+                    name: this.name,
+                    id: lastPerson.id + 1
+                };
+
+                this.persons.unshift(newPerson);
+                this.name = "";
+            }
+        },
+
+        computed: {
+
+        }
+
+    });
+</script>
+</html>

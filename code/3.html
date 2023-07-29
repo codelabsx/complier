@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <!-- 使用注册好的组件 -->
+    <div id="app">
+        <abc></abc>
+    </div>
+    
+</body>
+
+<script>
+    let Profile = Vue.extend({
+        template: `
+            <div>
+                <p>我是描述信息</p>
+            </div>
+        `
+    });
+
+    //注册已经创建好的组件
+    Vue.component("abc", Profile);
+
+    //创建vue实例
+    let vue = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        component:{},
+    });
+</script>
+</html>
