@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- 由于我们是在Vue实例控制的区域中使用的函数
+        所以系统会去vue实例中查找没有对应的方法所以我们需要在
+        vue实例中实现对应的方法
+        -->
+        <button @click="appFn">我是按钮</button>
+        <abc></abc>
+    </div>
+
+    <template id="info">
+        <div>
+            <!-- 由于我们是在自定义组件中使用了函数
+            所以系统会去自定义的组件查找, 有没有对应的方法
+            所以我们需要在自定义的组件中实现对应的方法
+            
+            -->
+            <button @click="appFn">我是按钮</button>
+            <p>我是描述信息</p>
+            <p>{{msg}}</p>
+            <!-- 在自定义模版中使用 -->
+        </div>
+    </template>
+
+</body>
+<script>
+
+Vue.component("abc", {
+    template: "info",
+    menthods: {
+        abcFn() {
+            alert("abcFn");
+        }
+    },
+    //在组件中也使用data
+    data: function() {
+        return {
+            abcMsg: "学院"
+        }
+    }
+})
+
+//自定义组件是否也可以使用data和method
+let vue = new Vue({
+    el: '#app',
+    methods: {
+        appFn() {
+            alert('appFn')
+        }
+    }
+});
+
+
+
+
+
+
+</script>
+</html>

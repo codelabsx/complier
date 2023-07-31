@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    
+</body>
+
+<template id="info">
+    <div>
+        <p>我是描述信息</p>
+    </div>
+</template>
+
+<script>
+
+    Vue.components("abc", {
+        template: "info",
+        methods: {
+            abcFn() {
+                alert("abcFn")
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+    let vue = new Vue({
+        el: '#app1',
+        components: {
+            "abc": {template: "#info"}
+        }
+    })
+
+</script>
+
+</html>
