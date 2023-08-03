@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+
+
+<body>
+<div id="app">
+    <button @click="appFn">我是按钮</button>
+    <p>{{appMsg}}</p>
+    <abc></abc>
+</div>
+
+<template id="info">
+    <div>
+        <button @click="abcFn">我是按钮</button>
+        <p>{{abcMsg}}</p>
+    </div>
+</template>
+
+<script>
+    //自定义组件
+    Vue.component("abc", {
+        template: "#info",
+        methods: {
+            abcFn() {
+                alert("abcFn");
+            }
+        },
+
+        //虽然在自定义组件中也可以使用data
+        data: function() {
+            return {
+                abcMsg: "学院"
+            }
+        }
+    });
+
+    //自已实现
+    let vue = new Vue({
+        el: "#app",
+        data: {
+            appMsg: "bool教育"
+        },
+
+        methods: {
+            appFn() {
+                alert("appFn");
+            }
+        },
+
+        computed: {
+
+        }
+    });
+
+</script>
+
+</body>
+</html>

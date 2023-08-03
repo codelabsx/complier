@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--组件的复用-->
+        <abc></abc>
+    </div>
+
+    
+    <template id="info">
+        <div>
+            <button @click="add">累加</button>
+            <p>{{number}}</p>
+
+            <button @click="sub">递减</button>
+            <p>{{number}}</p>
+        </div>
+    </template>
+</body>
+
+
+
+<script>
+    Vue.component("abc", {
+        template: "#info",
+        data: function() {
+            return {
+                number: 0,
+            }    
+        },
+        methods: {
+            add() {
+                this.number += 1;
+            },
+            sub() {
+                this.number -= 1;
+            }
+        }
+    });
+
+    let vue = new Vue({el: "#app"});
+</script>
+</html>
