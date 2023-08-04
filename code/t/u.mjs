@@ -14,11 +14,12 @@ function utest(name, callback) {
     testRes.push(name, sucess, error);
 }
 
-//将每一个值
+let sucessCount = 0;
+let failCount = 0;
 testRes.forEach((item)=>{
     if (item.sucess === true) {
-
+        sucess
     } else {
         
     }
-})
+});
